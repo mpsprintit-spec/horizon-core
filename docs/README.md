@@ -1,1 +1,3 @@
+# Documentation
 
+Project Horizon documentation.
