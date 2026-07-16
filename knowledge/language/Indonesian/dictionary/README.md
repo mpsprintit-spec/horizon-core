@@ -2,58 +2,32 @@
 
 ## Overview
 
-This README defines the documentation foundation for Indonesian lexical entries, word identities, meanings, usage notes, and lexical relationships. It establishes how future Indonesian language knowledge should be organized while preserving Horizon's principle that knowledge supports responsible, context-aware assistance.
+The dictionary module documents Indonesian lexical entries. It provides a scalable structure for lemma identity, pronunciation, part of speech, meanings, usage, related words, and examples.
 
-## Purpose
+## Structure
 
-The purpose of this document is to provide standards for future dictionary entries without populating lexical data. It helps contributors add future resources consistently, review changes predictably, and keep Indonesian language knowledge aligned with Horizon's human-first and knowledge-centered design.
+- `architecture.md` defines the long-term dictionary design.
+- `a.md`, `b.md`, and later alphabet files store representative entries by initial letter.
+- New alphabet files may be added when reviewed entries require them.
 
-## Scope
+## Entry format
 
-This module includes documentation standards, classification rules, metadata expectations, architecture guidance, and small illustrative examples for Indonesian lexical entries, word identities, meanings, usage notes, and lexical relationships.
+Each entry should include:
 
-This module does not include bulk data, generated datasets, implementation code, AI prompts, business logic, and material owned by another module. Contributors must not use this README to populate large data collections or change repository architecture.
+- **Lemma:** Indonesian headword.
+- **Pronunciation:** broad practical pronunciation using Indonesian spelling guidance or IPA when useful.
+- **Part of speech:** noun, verb, adjective, adverb, pronoun, preposition, conjunction, particle, numeral, or interjection.
+- **Register:** formal, neutral, informal, colloquial, regional, or domain-specific.
+- **Meaning:** concise English meaning with sense numbers when needed.
+- **Usage:** contextual guidance and constraints.
+- **Related words:** derivations, synonyms, antonyms, or semantically related terms.
+- **Examples:** short Indonesian examples with English glosses.
+- **Cross-references:** grammar, semantics, pragmatics, expressions, idioms, abbreviations, or examples when relevant.
 
-## Relationship
+## Initial vocabulary coverage
 
-This module interacts with grammar, semantics, idioms, abbreviations, and examples. Cross-references should clarify ownership: each concept should be defined in one primary module and referenced from other modules only when needed. Shared terminology must remain consistent across the Indonesian Language Knowledge Base.
+The current foundation begins with high-value, reusable entries: function words, common verbs, social terms, safety-relevant vocabulary, and language-learning anchors. It intentionally does not attempt to be complete.
 
-## Directory Structure
+## Cross-references
 
-The intended directory layout is:
-
-```text
-knowledge/language/Indonesian/dictionary/
-├── README.md
-└── architecture.md
-```
-
-Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere. The `architecture.md` file defines the future entry, index, category, metadata, cross-reference, and versioning standards for this module.
-
-## File Naming Convention
-
-Use lowercase, predictable, human-readable file names. Prefer hyphen-separated words, such as `usage-notes.md` or `politeness-levels.md`. Avoid spaces, mixed casing, dates as primary identifiers, and ambiguous abbreviations. File names should describe the documented concept, not the author, implementation status, or temporary task.
-
-## Writing Standard
-
-Write documentation in professional English. Use Markdown headings in sentence case, short paragraphs, and bullet lists for rules or checklists. Use Indonesian terms only when they are the subject of documentation, and provide concise English explanations on first use. Keep terminology consistent with the other Indonesian language modules, especially the terms `module`, `entry`, `usage`, `meaning`, `context`, `example`, and `cross-reference`.
-
-## Quality Standard
-
-Acceptable documentation must be accurate, concise, reviewable, and maintainable. Each document should state its scope, avoid duplicate definitions, and identify related modules when concepts overlap. Reviewers should verify structural consistency, terminology consistency, Markdown formatting, and alignment with The Book of Horizon before approving changes.
-
-## Architecture
-
-See `architecture.md` for the dictionary architecture, entry organization, alphabet organization, category organization, metadata structure, cross-reference strategy, versioning strategy, and long-term scalability standard.
-
-## Examples
-
-- Define the expected fields for a future lexical entry, including lemma, word class, senses, usage notes, and metadata.
-- Reference grammar for morphological behavior and semantics for sense relations.
-- Use one placeholder lemma only to demonstrate entry structure, not to populate the dictionary.
-
-Examples in this module are documentation examples only. They are not authoritative dataset entries and should not be treated as complete linguistic coverage.
-
-## Future Expansion
-
-This module may grow by adding focused Markdown files that document one stable concept at a time. Expansion should preserve the current architecture, use cross-references instead of duplication, and prioritize knowledge that improves safe, contextual understanding for human assistance.
+Use `../grammar/README.md` for word class and affix behavior, `../semantics/README.md` for meaning relations, and `../examples/README.md` for sentence-level demonstrations.

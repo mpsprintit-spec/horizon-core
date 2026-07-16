@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document defines the structural foundation for the Indonesian Dictionary module. It describes how future lexical entries should be organized, named, linked, versioned, and reviewed without adding vocabulary data in this foundation pass.
+This document defines the structural foundation for the Indonesian Dictionary module. It describes how lexical entries should be organized, named, linked, versioned, and reviewed as the foundation grows.
 
 The dictionary must support Horizon's knowledge-centered purpose: reliable lexical understanding that helps people interpret language in context. It should remain human-reviewable, cautious about ambiguity, and connected to the surrounding Indonesian language modules instead of duplicating their content.
 
@@ -10,7 +10,7 @@ The dictionary must support Horizon's knowledge-centered purpose: reliable lexic
 
 This architecture covers standards for future dictionary storage under `knowledge/language/Indonesian/dictionary/`, including entry organization, alphabet grouping, category grouping, metadata, cross-references, semantic links, pronunciation notes, examples, versioning, and scalability.
 
-This architecture does not populate Indonesian vocabulary, create a complete lexical dataset, define grammar rules, define semantic theory, store example corpora, or change the wider repository architecture.
+This architecture does not create a complete lexical dataset, define grammar rules, define semantic theory, store example corpora, or change the wider repository architecture. Representative vocabulary belongs in alphabet files such as `a.md` and `b.md`.
 
 ## Design principles
 
@@ -26,7 +26,7 @@ Future dictionary work must follow these principles:
 
 ## Proposed directory architecture
 
-The current foundation contains only this documentation and the module README. Future contributors may add the directories below when there is reviewed lexical content to store:
+The current foundation uses compact alphabet files for representative entries. Future contributors may add the directories below when entry volume requires one file per lexical identity:
 
 ```text
 knowledge/language/Indonesian/dictionary/
@@ -51,11 +51,11 @@ knowledge/language/Indonesian/dictionary/
     └── entry-template.md
 ```
 
-These directories are a future storage standard, not vocabulary population. They should be created only when the first reviewed entry, category standard, index, or template requires them.
+These directories are a future storage standard for larger reviewed vocabulary sets. They should be created only when entry volume, category standards, indexes, or templates require them.
 
 ## Entry organization
 
-Each future dictionary entry should be stored as one Markdown file. The file should document a single lexical identity and use structured headings so humans can review it and tools can parse it later.
+At larger scale, each dictionary entry should be stored as one Markdown file. The file should document a single lexical identity and use structured headings so humans can review it and tools can parse it later.
 
 ### Entry file naming
 
@@ -113,7 +113,7 @@ Categories should not duplicate definitions. They should provide consistent labe
 
 ## Entry field standard
 
-Each future entry should use the following fields. Required fields establish identity and minimum interpretation; optional fields should be included only when evidence supports them.
+Each dictionary entry should use the following fields. Required fields establish identity and minimum interpretation; optional fields should be included only when evidence supports them.
 
 ### Word
 

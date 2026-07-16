@@ -2,53 +2,51 @@
 
 ## Overview
 
-This README defines the documentation foundation for Indonesian conversational structures, dialogue patterns, turn-taking behavior, and interaction conventions. It establishes how future Indonesian language knowledge should be organized while preserving Horizon's principle that knowledge supports responsible, context-aware assistance.
+The conversation module documents Indonesian interaction structures: openings, questions, requests, confirmations, corrections, agreement, disagreement, repair, and closings. Pragmatic choices such as formality and politeness are owned by `../pragmatics/README.md`.
 
-## Purpose
+## Greeting and opening
 
-The purpose of this document is to provide standards for future conversation resources without generating dialogue datasets. It helps contributors add future resources consistently, review changes predictably, and keep Indonesian language knowledge aligned with Horizon's human-first and knowledge-centered design.
+- Formal: `Selamat pagi, Bapak/Ibu. Ada yang bisa saya bantu?`
+- Neutral: `Halo, ada yang bisa saya bantu?`
+- Informal: `Hai, apa kabar?`
 
-## Scope
+A greeting may be followed by an offer of help, especially in service contexts.
 
-This module includes documentation standards, classification rules, metadata expectations, and small illustrative examples for Indonesian conversational structures, dialogue patterns, turn-taking behavior, and interaction conventions.
+## Questions
 
-This module does not include bulk data, generated datasets, implementation code, AI prompts, business logic, and material owned by another module. Contributors must not use this README to populate large data collections or change repository architecture.
+- Information question: `Kapan rapat dimulai?`
+- Yes/no question: `Apakah Anda sudah menerima pesan?`
+- Clarification question: `Maksud Anda data yang terbaru?`
+- Safety question: `Apakah Anda berada di tempat yang aman?`
 
-## Relationship
+## Requests
 
-This module interacts with pragmatics, expressions, grammar, syntax, semantics, and examples. Cross-references should clarify ownership: each concept should be defined in one primary module and referenced from other modules only when needed. Shared terminology must remain consistent across the Indonesian Language Knowledge Base.
+- Neutral polite: `Tolong kirim dokumen itu.`
+- Formal polite: `Mohon kirimkan dokumen tersebut.`
+- Indirect polite: `Bisa bantu kirim dokumen itu?`
 
-## Directory Structure
+## Confirmation
 
-The intended directory layout is:
+- `Baik, saya pahami.` — acknowledgment.
+- `Benar, jadwalnya pukul sembilan.` — correctness confirmation.
+- `Jadi, Anda ingin mengubah alamat pengiriman?` — confirmation by restatement.
 
-```text
-knowledge/language/Indonesian/conversation/
-└── README.md
-```
+## Correction and repair
 
-Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere.
+- Soft correction: `Maaf, sepertinya tanggalnya bukan hari ini.`
+- Self-correction: `Maksud saya, besok pagi, bukan malam ini.`
+- Request for repetition: `Maaf, bisa diulangi?`
 
-## File Naming Convention
+## Agreement and disagreement
 
-Use lowercase, predictable, human-readable file names. Prefer hyphen-separated words, such as `usage-notes.md` or `politeness-levels.md`. Avoid spaces, mixed casing, dates as primary identifiers, and ambiguous abbreviations. File names should describe the documented concept, not the author, implementation status, or temporary task.
+- Agreement: `Saya setuju.`; `Benar.`; `Itu masuk akal.`
+- Soft disagreement: `Saya kurang setuju.`; `Mungkin ada pilihan lain.`
+- Direct disagreement: `Saya tidak setuju.` Use carefully when social distance is high.
 
-## Writing Standard
+## Closing
 
-Write documentation in professional English. Use Markdown headings in sentence case, short paragraphs, and bullet lists for rules or checklists. Use Indonesian terms only when they are the subject of documentation, and provide concise English explanations on first use. Keep terminology consistent with the other Indonesian language modules, especially the terms `module`, `entry`, `usage`, `meaning`, `context`, `example`, and `cross-reference`.
+- Formal: `Terima kasih. Semoga hari Anda menyenangkan.`
+- Neutral: `Terima kasih, sampai jumpa.`
+- Informal: `Makasih, sampai nanti.`
 
-## Quality Standard
-
-Acceptable documentation must be accurate, concise, reviewable, and maintainable. Each document should state its scope, avoid duplicate definitions, and identify related modules when concepts overlap. Reviewers should verify structural consistency, terminology consistency, Markdown formatting, and alignment with The Book of Horizon before approving changes.
-
-## Examples
-
-- Document turn-taking, openings, closings, repair strategies, and adjacency pairs as reusable patterns.
-- Reference pragmatics when a conversational pattern depends on politeness, role, or social distance.
-- Use a minimal exchange only to demonstrate structure, not to create a dialogue corpus.
-
-Examples in this module are documentation examples only. They are not authoritative dataset entries and should not be treated as complete linguistic coverage.
-
-## Future Expansion
-
-This module may grow by adding focused Markdown files that document one stable concept at a time. Expansion should preserve the current architecture, use cross-references instead of duplication, and prioritize knowledge that improves safe, contextual understanding for human assistance.
+Conversation entries should remain short, reusable, and linked to examples rather than becoming large dialogue datasets.

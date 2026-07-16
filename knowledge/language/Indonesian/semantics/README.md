@@ -2,53 +2,43 @@
 
 ## Overview
 
-This README defines the documentation foundation for meaning in Indonesian, including sense distinctions, semantic roles, relations, and interpretation rules. It establishes how future Indonesian language knowledge should be organized while preserving Horizon's principle that knowledge supports responsible, context-aware assistance.
+The semantics module documents Indonesian meaning: sense distinctions, lexical relations, semantic roles, ambiguity, polysemy, and semantic categories. Dictionary entries define individual words; this module defines reusable meaning principles.
 
-## Purpose
+## Semantic roles
 
-The purpose of this document is to provide standards for future semantic documentation without producing meaning datasets. It helps contributors add future resources consistently, review changes predictably, and keep Indonesian language knowledge aligned with Horizon's human-first and knowledge-centered design.
+- **Agent:** intentional doer, as in `Petugas membuka pintu`.
+- **Patient/theme:** entity affected or moved, as in `pintu` in `membuka pintu`.
+- **Experiencer:** entity that feels or perceives, as in `Saya takut`.
+- **Recipient/beneficiary:** receiver or beneficiary, as in `Ibu memberi anak itu buku`.
+- **Location/source/goal:** spatial roles marked by `di`, `dari`, and `ke`.
 
-## Scope
+## Lexical relations
 
-This module includes documentation standards, classification rules, metadata expectations, and small illustrative examples for meaning in Indonesian, including sense distinctions, semantic roles, relations, and interpretation rules.
+- **Synonymy:** words with overlapping meaning, such as `bisa`, `dapat`, and `mampu`, but register and nuance differ.
+- **Antonymy:** contrastive pairs such as `benar`/`salah`, `aman`/`berbahaya`, `besar`/`kecil`.
+- **Hyponymy:** category relation, such as `dokter` as a type of `profesi`.
+- **Meronymy:** part-whole relation, such as `roda` as part of `kendaraan`.
 
-This module does not include bulk data, generated datasets, implementation code, AI prompts, business logic, and material owned by another module. Contributors must not use this README to populate large data collections or change repository architecture.
+## Polysemy and ambiguity
 
-## Relationship
+Some forms have multiple related or unrelated senses. `Bisa` can mean ability or venom. Context, word class, and neighboring words determine interpretation:
 
-This module interacts with dictionary, grammar, syntax, pragmatics, idioms, and examples. Cross-references should clarify ownership: each concept should be defined in one primary module and referenced from other modules only when needed. Shared terminology must remain consistent across the Indonesian Language Knowledge Base.
+- `Saya bisa datang.` — ability.
+- `Bisa ular berbahaya.` — venom.
 
-## Directory Structure
+Ambiguous entries should be documented in the dictionary with separate senses and referenced here only for the general interpretation strategy.
 
-The intended directory layout is:
+## Semantic categories
 
-```text
-knowledge/language/Indonesian/semantics/
-└── README.md
-```
+Useful categories for future entries include:
 
-Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere.
+- people and social roles: `dokter`, `guru`, `keluarga`.
+- safety and risk: `aman`, `bahaya`, `darurat`.
+- cognition and communication: `tahu`, `pikir`, `jelas`, `tanya`.
+- movement and location: `pergi`, `datang`, `di`, `ke`, `dari`.
+- time and aspect: `sekarang`, `nanti`, `sudah`, `akan`.
+- quantity and degree: `banyak`, `sedikit`, `sangat`, `cukup`.
 
-## File Naming Convention
+## Meaning and context
 
-Use lowercase, predictable, human-readable file names. Prefer hyphen-separated words, such as `usage-notes.md` or `politeness-levels.md`. Avoid spaces, mixed casing, dates as primary identifiers, and ambiguous abbreviations. File names should describe the documented concept, not the author, implementation status, or temporary task.
-
-## Writing Standard
-
-Write documentation in professional English. Use Markdown headings in sentence case, short paragraphs, and bullet lists for rules or checklists. Use Indonesian terms only when they are the subject of documentation, and provide concise English explanations on first use. Keep terminology consistent with the other Indonesian language modules, especially the terms `module`, `entry`, `usage`, `meaning`, `context`, `example`, and `cross-reference`.
-
-## Quality Standard
-
-Acceptable documentation must be accurate, concise, reviewable, and maintainable. Each document should state its scope, avoid duplicate definitions, and identify related modules when concepts overlap. Reviewers should verify structural consistency, terminology consistency, Markdown formatting, and alignment with The Book of Horizon before approving changes.
-
-## Examples
-
-- Document sense distinctions, semantic roles, entailment, ambiguity, metaphor, and lexical relations.
-- Explain meaning rules without duplicating dictionary entries or grammar rules.
-- Reference examples when a short sentence helps demonstrate interpretation.
-
-Examples in this module are documentation examples only. They are not authoritative dataset entries and should not be treated as complete linguistic coverage.
-
-## Future Expansion
-
-This module may grow by adding focused Markdown files that document one stable concept at a time. Expansion should preserve the current architecture, use cross-references instead of duplication, and prioritize knowledge that improves safe, contextual understanding for human assistance.
+Literal meaning can be modified by pragmatics. `Bisa bantu saya?` literally asks ability, but commonly functions as a polite request. See `../pragmatics/README.md` and `../conversation/README.md` for intent and interaction patterns.
