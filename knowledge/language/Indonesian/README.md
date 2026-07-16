@@ -2,63 +2,38 @@
 
 ## Overview
 
-This README defines the documentation foundation for the Indonesian Language Knowledge Base. It establishes how future Indonesian language knowledge should be organized while preserving Horizon's principle that knowledge supports responsible, context-aware assistance.
+The Indonesian Language Knowledge Base provides Horizon with reviewed linguistic knowledge for understanding Indonesian in human contexts. It is organized as a modular foundation rather than a bulk corpus: each module owns one kind of knowledge and cross-references related modules when interpretation depends on more than one layer.
 
-## Purpose
+This foundation follows The Book of Horizon by treating language knowledge as support for safer, clearer, and more context-aware assistance. Indonesian examples are included only where they represent the language itself; explanations remain in professional English.
 
-The purpose of this document is to provide repository-wide standards for Indonesian linguistic knowledge. It helps contributors add future resources consistently, review changes predictably, and keep Indonesian language knowledge aligned with Horizon's human-first and knowledge-centered design.
+## Module map
 
-## Scope
+- `dictionary/` owns lexical entries, lemma identity, pronunciations, meanings, usage notes, related words, and entry metadata.
+- `grammar/` owns word classes, affixes, word formation, voice, pronouns, aspect markers, and grammatical rules.
+- `syntax/` owns phrase, clause, sentence, word-order, and dependency patterns.
+- `semantics/` owns meaning relations, roles, ambiguity, polysemy, synonymy, antonymy, and semantic categories.
+- `pragmatics/` owns contextual usage, register, politeness, social distance, intent, and cultural interpretation.
+- `conversation/` owns interaction patterns such as greetings, questions, requests, confirmations, corrections, agreement, disagreement, and closings.
+- `expressions/` owns conventional set expressions whose meanings are mostly compositional but socially conventional.
+- `idioms/` owns idiomatic expressions whose meanings are not fully predictable from their parts.
+- `abreviations/` owns abbreviations, acronyms, initialisms, shortened forms, and ambiguity notes.
+- `examples/` owns representative examples that demonstrate and link the other modules without becoming a corpus.
 
-This module includes module README files, shared terminology, cross-module boundaries, and conventions for documentation under `knowledge/language/Indonesian/`.
+## Cross-reference rule
 
-This module does not include implementation code, model behavior, product requirements, large linguistic datasets, and changes to Horizon core specifications. Contributors must not use this README to populate large data collections or change repository architecture.
+Each concept should be defined once in its primary module. Other modules should reference that definition rather than restating it. For example, the grammar module defines the active prefix `meN-`, the syntax module explains where the resulting verb appears in a clause, and the examples module provides short sentences that demonstrate both.
 
-## Relationship
+## Terminology standard
 
-This module coordinates the language modules under `knowledge/language/Indonesian/`. Cross-references should clarify ownership: each concept should be defined in one primary module and referenced from other modules only when needed. Shared terminology must remain consistent across the Indonesian Language Knowledge Base.
+Use the following terms consistently:
 
-## Directory Structure
+- **entry:** a documented lexical item, abbreviation, expression, idiom, rule, pattern, or example.
+- **meaning:** the stable interpretation of an entry in a defined context.
+- **usage:** guidance about when and how an entry is appropriate.
+- **register:** formality level such as formal, neutral, informal, or colloquial.
+- **context:** the social, situational, or linguistic environment that changes interpretation.
+- **cross-reference:** a link to another module that owns related knowledge.
 
-The intended directory layout is:
+## Current foundation status
 
-```text
-knowledge/language/Indonesian/
-├── README.md
-├── abreviations/
-├── conversation/
-├── dictionary/
-├── examples/
-├── expressions/
-├── grammar/
-├── idioms/
-├── pragmatics/
-├── semantics/
-└── syntax/
-```
-
-Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere.
-
-## File Naming Convention
-
-Use lowercase, predictable, human-readable file names. Prefer hyphen-separated words, such as `usage-notes.md` or `politeness-levels.md`. Avoid spaces, mixed casing, dates as primary identifiers, and ambiguous abbreviations. File names should describe the documented concept, not the author, implementation status, or temporary task.
-
-## Writing Standard
-
-Write documentation in professional English. Use Markdown headings in sentence case, short paragraphs, and bullet lists for rules or checklists. Use Indonesian terms only when they are the subject of documentation, and provide concise English explanations on first use. Keep terminology consistent with the other Indonesian language modules, especially the terms `module`, `entry`, `usage`, `meaning`, `context`, `example`, and `cross-reference`.
-
-## Quality Standard
-
-Acceptable documentation must be accurate, concise, reviewable, and maintainable. Each document should state its scope, avoid duplicate definitions, and identify related modules when concepts overlap. Reviewers should verify structural consistency, terminology consistency, Markdown formatting, and alignment with The Book of Horizon before approving changes.
-
-## Examples
-
-- A dictionary entry may reference grammar for word class behavior.
-- A syntax note may reference semantics when sentence structure changes interpretation.
-- A conversation guide may reference pragmatics for politeness or register.
-
-Examples in this module are documentation examples only. They are not authoritative dataset entries and should not be treated as complete linguistic coverage.
-
-## Future Expansion
-
-This module may grow by adding focused Markdown files that document one stable concept at a time. Expansion should preserve the current architecture, use cross-references instead of duplication, and prioritize knowledge that improves safe, contextual understanding for human assistance.
+This foundation contains representative knowledge, not a complete Indonesian dictionary or grammar. It is designed to be scalable: future contributors can add entries and focused files without renaming existing folders, duplicating module ownership, or changing repository architecture.

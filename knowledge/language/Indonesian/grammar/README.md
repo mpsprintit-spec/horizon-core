@@ -2,53 +2,76 @@
 
 ## Overview
 
-This README defines the documentation foundation for Indonesian grammatical categories, morphology, inflectional behavior, and rule explanations. It establishes how future Indonesian language knowledge should be organized while preserving Horizon's principle that knowledge supports responsible, context-aware assistance.
+The grammar module documents Indonesian word classes, morphology, affixes, word formation, voice, pronouns, and tense-aspect expression. Indonesian grammar is largely analytic: verbs do not conjugate for person, number, or tense, and grammatical meaning is often expressed through particles, affixes, word order, and context.
 
-## Purpose
+## Parts of speech
 
-The purpose of this document is to provide standards for future grammar documentation without writing grammar datasets. It helps contributors add future resources consistently, review changes predictably, and keep Indonesian language knowledge aligned with Horizon's human-first and knowledge-centered design.
+- **Nouns:** name people, objects, places, concepts, and events. Plurality is usually inferred from context or expressed with numerals, quantifiers, or reduplication: `buku` (book/books), `dua buku` (two books), `buku-buku` (books, various books).
+- **Verbs:** express actions, processes, states, or events. Verbs do not inflect for tense. Voice and transitivity are often marked with affixes such as `meN-`, `di-`, `ber-`, and `ter-`.
+- **Adjectives:** describe qualities and can function as predicates without a copula: `Rumah itu besar` (“The house is big”).
+- **Adverbs:** modify verbs, adjectives, clauses, or whole utterances: `sangat` (very), `segera` (immediately), `mungkin` (maybe).
+- **Pronouns:** encode person, number, social relation, and formality. Choice of `saya`, `aku`, `Anda`, `kamu`, `dia`, `beliau`, `kami`, and `kita` is pragmatic as well as grammatical.
+- **Prepositions:** introduce locations, directions, sources, instruments, or relations: `di`, `ke`, `dari`, `dengan`, `untuk`.
+- **Conjunctions:** connect words, phrases, or clauses: `dan`, `atau`, `tetapi`, `karena`, `jika`.
+- **Particles:** add focus, emphasis, politeness, or discourse meaning: `-lah`, `-kah`, `pun`, `dong`, `kok`, `ya`.
 
-## Scope
+## Sentence structure
 
-This module includes documentation standards, classification rules, metadata expectations, and small illustrative examples for Indonesian grammatical categories, morphology, inflectional behavior, and rule explanations.
+The unmarked Indonesian clause pattern is subject-predicate, often realized as SVO for transitive verbal clauses:
 
-This module does not include bulk data, generated datasets, implementation code, AI prompts, business logic, and material owned by another module. Contributors must not use this README to populate large data collections or change repository architecture.
+- `Saya membaca buku.` — subject + verb + object.
+- `Anak itu pintar.` — subject + adjective predicate.
+- `Mereka di rumah.` — subject + prepositional predicate.
 
-## Relationship
+See `../syntax/README.md` for phrase and clause ordering.
 
-This module interacts with syntax, semantics, dictionary, and examples. Cross-references should clarify ownership: each concept should be defined in one primary module and referenced from other modules only when needed. Shared terminology must remain consistent across the Indonesian Language Knowledge Base.
+## Tense, aspect, and modality
 
-## Directory Structure
+Indonesian does not mark tense by verb inflection. Time is expressed by context, time adverbs, or aspect/modal markers:
 
-The intended directory layout is:
+- `sudah` — completed or already: `Saya sudah makan`.
+- `sedang` — ongoing: `Dia sedang bekerja`.
+- `akan` — future or intended: `Kami akan berangkat`.
+- `belum` — not yet: `Mereka belum datang`.
+- `bisa`, `dapat`, `mampu` — ability or possibility.
+- `harus`, `perlu`, `sebaiknya` — obligation, need, or recommendation.
 
-```text
-knowledge/language/Indonesian/grammar/
-└── README.md
-```
+## Affixes and word formation
 
-Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere.
+Indonesian forms many words through affixation. The same root may produce several grammatical and semantic forms.
 
-## File Naming Convention
+| Pattern | General function | Example | Meaning |
+| --- | --- | --- | --- |
+| `meN-` | active transitive/intransitive verb | `membaca` | to read |
+| `di-` | passive verb | `dibaca` | to be read |
+| `ber-` | intransitive, have/wear/do | `berjalan` | to walk |
+| `ter-` | accidental, stative, superlative | `terbuka` | open/opened unintentionally |
+| `peN-` | agent/instrument noun | `pembaca` | reader |
+| `per-...-an` | abstract/process/place noun | `perjalanan` | journey |
+| `ke-...-an` | abstract state or excessive condition | `kesehatan` | health |
+| `-kan` | causative, applicative, benefactive | `menyalakan` | to turn on |
+| `-i` | locative or repetitive applicative | `mengisi` | to fill |
+| `-an` | result, object, or collective noun | `makanan` | food |
 
-Use lowercase, predictable, human-readable file names. Prefer hyphen-separated words, such as `usage-notes.md` or `politeness-levels.md`. Avoid spaces, mixed casing, dates as primary identifiers, and ambiguous abbreviations. File names should describe the documented concept, not the author, implementation status, or temporary task.
+`meN-` changes shape according to the first sound of the root, as in `baca` → `membaca` and `tulis` → `menulis`. Document specific derivations in dictionary entries, not by generating exhaustive lists here.
 
-## Writing Standard
+## Active and passive voice
 
-Write documentation in professional English. Use Markdown headings in sentence case, short paragraphs, and bullet lists for rules or checklists. Use Indonesian terms only when they are the subject of documentation, and provide concise English explanations on first use. Keep terminology consistent with the other Indonesian language modules, especially the terms `module`, `entry`, `usage`, `meaning`, `context`, `example`, and `cross-reference`.
+- **Active voice:** the actor is prominent: `Petugas membuka pintu` (“The officer opens the door”).
+- **Passive voice with `di-`:** the patient/theme is prominent: `Pintu dibuka oleh petugas` (“The door is opened by the officer”).
+- **Agentless passive:** common when the actor is unknown or irrelevant: `Pintu dibuka` (“The door was/is opened”).
+- **First/second-person passive-like order:** Indonesian often places patient before a bare verb phrase with a pronoun actor: `Buku itu saya baca` (“I read/read the book,” literally “That book I read”).
 
-## Quality Standard
+## Pronouns and social meaning
 
-Acceptable documentation must be accurate, concise, reviewable, and maintainable. Each document should state its scope, avoid duplicate definitions, and identify related modules when concepts overlap. Reviewers should verify structural consistency, terminology consistency, Markdown formatting, and alignment with The Book of Horizon before approving changes.
+Pronoun choice affects politeness and relationship:
 
-## Examples
+- `saya` — neutral or formal first person singular.
+- `aku` — informal/intimate first person singular.
+- `kami` — exclusive “we,” excluding the addressee.
+- `kita` — inclusive “we,” including the addressee.
+- `Anda` — formal or neutral second person, often written.
+- `kamu` — informal second person.
+- `beliau` — respectful third person.
 
-- Document word classes, affix behavior, reduplication, particles, tense-aspect marking, and other grammatical patterns.
-- Use rules and constraints rather than long lists of generated forms.
-- Reference syntax when grammar affects phrase or clause structure.
-
-Examples in this module are documentation examples only. They are not authoritative dataset entries and should not be treated as complete linguistic coverage.
-
-## Future Expansion
-
-This module may grow by adding focused Markdown files that document one stable concept at a time. Expansion should preserve the current architecture, use cross-references instead of duplication, and prioritize knowledge that improves safe, contextual understanding for human assistance.
+See `../pragmatics/README.md` for register and social-distance guidance.

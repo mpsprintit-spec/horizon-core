@@ -2,53 +2,56 @@
 
 ## Overview
 
-This README defines the documentation foundation for Indonesian phrase, clause, and sentence structure. It establishes how future Indonesian language knowledge should be organized while preserving Horizon's principle that knowledge supports responsible, context-aware assistance.
+The syntax module documents Indonesian phrase, clause, sentence, word-order, and dependency patterns. It focuses on structure; morphology belongs in `../grammar/README.md`, and interpretation belongs in `../semantics/README.md`.
 
-## Purpose
+## Basic clause patterns
 
-The purpose of this document is to provide standards for future syntax documentation without writing syntactic datasets. It helps contributors add future resources consistently, review changes predictably, and keep Indonesian language knowledge aligned with Horizon's human-first and knowledge-centered design.
+- **Subject + verb + object:** `Saya membaca laporan.` — “I read the report.”
+- **Subject + adjective predicate:** `Cuaca panas.` — “The weather is hot.”
+- **Subject + noun predicate:** `Dia dokter.` — “They are a doctor.”
+- **Subject + prepositional predicate:** `Mereka di kantor.` — “They are at the office.”
+- **Existential:** `Ada masalah.` — “There is a problem.”
 
-## Scope
+Indonesian does not require an English-like copula in ordinary nominal, adjectival, or prepositional predicates.
 
-This module includes documentation standards, classification rules, metadata expectations, and small illustrative examples for Indonesian phrase, clause, and sentence structure.
+## Phrase structure
 
-This module does not include bulk data, generated datasets, implementation code, AI prompts, business logic, and material owned by another module. Contributors must not use this README to populate large data collections or change repository architecture.
+- **Noun phrase:** head noun usually precedes modifiers: `rumah besar` (“big house”), `buku saya` (“my book”), `orang yang datang` (“the person who came”).
+- **Adjective phrase:** intensifiers precede adjectives: `sangat penting` (“very important”).
+- **Prepositional phrase:** preposition precedes complement: `di rumah`, `ke sekolah`, `dari Jakarta`.
+- **Verb phrase:** aspect/modal markers precede the verb: `sudah makan`, `akan pergi`, `bisa membantu`.
 
-## Relationship
+## Word order and information structure
 
-This module interacts with grammar, semantics, conversation, and examples. Cross-references should clarify ownership: each concept should be defined in one primary module and referenced from other modules only when needed. Shared terminology must remain consistent across the Indonesian Language Knowledge Base.
+The neutral order is subject before predicate, but topicalization is common:
 
-## Directory Structure
+- Neutral: `Saya sudah membaca dokumen itu.`
+- Topic-fronted: `Dokumen itu sudah saya baca.`
 
-The intended directory layout is:
+Topic-fronting changes prominence more than core meaning. It is common in conversation and formal writing when the object is already known.
 
-```text
-knowledge/language/Indonesian/syntax/
-└── README.md
-```
+## Questions
 
-Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere.
+- **Yes/no question by intonation:** `Kamu sudah makan?`
+- **Question particle:** `Apakah Anda setuju?` is formal or careful.
+- **Focused question marker:** `-kah` can attach to question words or predicates in formal style: `Benarkah itu?`
+- **WH-words:** `apa` (what), `siapa` (who), `kapan` (when), `di mana` (where), `mengapa/kenapa` (why), `bagaimana` (how), `berapa` (how many/much).
 
-## File Naming Convention
+## Negation placement
 
-Use lowercase, predictable, human-readable file names. Prefer hyphen-separated words, such as `usage-notes.md` or `politeness-levels.md`. Avoid spaces, mixed casing, dates as primary identifiers, and ambiguous abbreviations. File names should describe the documented concept, not the author, implementation status, or temporary task.
+- `tidak` negates verbs, adjectives, and clauses: `Saya tidak tahu`.
+- `bukan` negates nouns or identity: `Dia bukan dokter`.
+- `belum` means “not yet” and combines negation with aspect: `Mereka belum tiba`.
+- `jangan` marks negative imperatives: `Jangan masuk`.
 
-## Writing Standard
+## Dependencies
 
-Write documentation in professional English. Use Markdown headings in sentence case, short paragraphs, and bullet lists for rules or checklists. Use Indonesian terms only when they are the subject of documentation, and provide concise English explanations on first use. Keep terminology consistent with the other Indonesian language modules, especially the terms `module`, `entry`, `usage`, `meaning`, `context`, `example`, and `cross-reference`.
+Important dependency relations include:
 
-## Quality Standard
+- predicate to subject: `Anak itu tidur`.
+- transitive verb to object: `membaca buku`.
+- noun to modifier: `jalan utama`.
+- preposition to complement: `di kota`.
+- clause to subordinator: `karena hujan`, `jika perlu`.
 
-Acceptable documentation must be accurate, concise, reviewable, and maintainable. Each document should state its scope, avoid duplicate definitions, and identify related modules when concepts overlap. Reviewers should verify structural consistency, terminology consistency, Markdown formatting, and alignment with The Book of Horizon before approving changes.
-
-## Examples
-
-- Document phrase order, clause patterns, negation placement, question formation, and sentence-level structure.
-- Describe structural constraints without generating a parsed sentence database.
-- Reference grammar for morphological details and semantics for interpretation effects.
-
-Examples in this module are documentation examples only. They are not authoritative dataset entries and should not be treated as complete linguistic coverage.
-
-## Future Expansion
-
-This module may grow by adding focused Markdown files that document one stable concept at a time. Expansion should preserve the current architecture, use cross-references instead of duplication, and prioritize knowledge that improves safe, contextual understanding for human assistance.
+See `../examples/README.md` for annotated examples.
