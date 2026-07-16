@@ -5,9 +5,14 @@ on:
   pull_request:
 
 jobs:
-  structure:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Repository structure placeholder
-        run: echo "HC-001 repository structure initialized"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - name: Download dependencies
+        run: go mod download
+      - name: Validate HC-001 foundation
+        run: make validate
