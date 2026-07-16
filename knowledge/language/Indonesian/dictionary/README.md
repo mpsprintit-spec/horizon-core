@@ -10,7 +10,7 @@ The purpose of this document is to provide standards for future dictionary entri
 
 ## Scope
 
-This module includes documentation standards, classification rules, metadata expectations, and small illustrative examples for Indonesian lexical entries, word identities, meanings, usage notes, and lexical relationships.
+This module includes documentation standards, classification rules, metadata expectations, architecture guidance, and small illustrative examples for Indonesian lexical entries, word identities, meanings, usage notes, and lexical relationships.
 
 This module does not include bulk data, generated datasets, implementation code, AI prompts, business logic, and material owned by another module. Contributors must not use this README to populate large data collections or change repository architecture.
 
@@ -24,10 +24,11 @@ The intended directory layout is:
 
 ```text
 knowledge/language/Indonesian/dictionary/
-└── README.md
+├── README.md
+└── architecture.md
 ```
 
-Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere.
+Do not create additional directories until there is a clear documentation need. New files should reuse the current module structure and should not duplicate content that already belongs elsewhere. The `architecture.md` file defines the future entry, index, category, metadata, cross-reference, and versioning standards for this module.
 
 ## File Naming Convention
 
@@ -40,6 +41,10 @@ Write documentation in professional English. Use Markdown headings in sentence c
 ## Quality Standard
 
 Acceptable documentation must be accurate, concise, reviewable, and maintainable. Each document should state its scope, avoid duplicate definitions, and identify related modules when concepts overlap. Reviewers should verify structural consistency, terminology consistency, Markdown formatting, and alignment with The Book of Horizon before approving changes.
+
+## Architecture
+
+See `architecture.md` for the dictionary architecture, entry organization, alphabet organization, category organization, metadata structure, cross-reference strategy, versioning strategy, and long-term scalability standard.
 
 ## Examples
 
