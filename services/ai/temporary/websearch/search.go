@@ -7,6 +7,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 // ============================================================================
@@ -15,17 +16,36 @@ import (
 
 func CheckKnowledge(word string) bool {
 
+	word = strings.ToLower(strings.TrimSpace(word))
+
+	if word == "" {
+		return false
+	}
+
+	letter := string(word[0])
+
 	dictionaryPath := filepath.Join(
+		"..",
+		"..",
 		"knowledge",
 		"language",
 		"Indonesian",
 		"dictionary",
-		word+".yaml",
+		letter+".md",
 	)
 
-	_, err := os.Stat(dictionaryPath)
+	data, err := os.ReadFile(dictionaryPath)
 
-	return err == nil
+	if err != nil {
+		return false
+	}
+
+	content := strings.ToLower(string(data))
+
+	target := "## " + word
+
+	return strings.Contains(content, target)
+
 }
 
 // ============================================================================
@@ -53,7 +73,6 @@ func SearchWikipedia(word string) ([]byte, error) {
 	}
 
 	response, err := client.Do(request)
-
 	if err != nil {
 		return nil, err
 	}
@@ -61,16 +80,13 @@ func SearchWikipedia(word string) ([]byte, error) {
 	defer response.Body.Close()
 
 	if response.StatusCode != http.StatusOK {
-
 		return nil, fmt.Errorf(
 			"wikipedia response : %d",
 			response.StatusCode,
 		)
-
 	}
 
 	body, err := io.ReadAll(response.Body)
-
 	if err != nil {
 		return nil, err
 	}
@@ -102,4 +118,5 @@ func CheckInternet() bool {
 	_, err = client.Do(request)
 
 	return err == nil
+
 }
