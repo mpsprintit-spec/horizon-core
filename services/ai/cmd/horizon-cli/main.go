@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"horizon-core/services/ai/core"
-	"horizon-core/services/ai/knowledge"
-	"horizon-core/services/ai/learning"
-	"horizon-core/services/ai/plugin"
+	"github.com/project-horizon/horizon-core/services/ai/core"
+	"github.com/project-horizon/horizon-core/services/ai/knowledge"
+	"github.com/project-horizon/horizon-core/services/ai/learning"
+	"github.com/project-horizon/horizon-core/services/ai/plugin"
 )
+
 
 func main() {
 	fmt.Println("==================================================================")

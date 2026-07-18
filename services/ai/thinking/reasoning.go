@@ -2,7 +2,7 @@ package thinking
 
 import (
 	"fmt"
-	"horizon-core/services/ai/knowledge"
+	"github.com/project-horizon/horizon-core/services/ai/knowledge"
 )
 
 func (t *ThinkingEngine) Reason(stimulusStr, konteksStr string) (string, bool) {

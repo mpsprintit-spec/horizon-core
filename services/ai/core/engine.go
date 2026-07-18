@@ -1,11 +1,12 @@
 package core
 
 import (
-	"horizon-core/services/ai/execution"
-	"horizon-core/services/ai/knowledge"
-	"horizon-core/services/ai/learning"
-	"horizon-core/services/ai/thinking"
+	"github.com/project-horizon/horizon-core/services/ai/execution"
+	"github.com/project-horizon/horizon-core/services/ai/knowledge"
+	"github.com/project-horizon/horizon-core/services/ai/learning"
+	"github.com/project-horizon/horizon-core/services/ai/thinking"
 )
+
 
 type HorizonEngine struct {
 	Knowledge *knowledge.KnowledgeBase

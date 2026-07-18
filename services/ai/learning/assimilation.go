@@ -2,7 +2,7 @@ package learning
 
 import (
 	"fmt"
-	"horizon-core/services/ai/knowledge"
+	"github.com/project-horizon/horizon-core/services/ai/knowledge"
 )
 
 func (l *LearningUnit) Assimilate(subjekStr, relasiStr, objekStr string, bobot float64) {

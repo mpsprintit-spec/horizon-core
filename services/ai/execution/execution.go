@@ -1,9 +1,10 @@
 package execution
 
 import (
-	"horizon-core/services/ai/plugin"
+	"github.com/project-horizon/horizon-core/services/ai/plugin"
 	"sync"
 )
+
 
 type ExecutionCore struct {
 	Mu      sync.RWMutex

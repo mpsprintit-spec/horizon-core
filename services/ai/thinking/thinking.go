@@ -1,6 +1,7 @@
 package thinking
 
-import "horizon-core/services/ai/knowledge"
+import "github.com/project-horizon/horizon-core/services/ai/knowledge"
+
 
 type ThinkingEngine struct {
 	Kb *knowledge.KnowledgeBase

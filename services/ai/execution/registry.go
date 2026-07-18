@@ -1,6 +1,7 @@
 package execution
 
-import "horizon-core/services/ai/plugin"
+import "github.com/project-horizon/horizon-core/services/ai/plugin"
+
 
 func (e *ExecutionCore) RegisterPlugin(actionName string, p plugin.Plugin) {
 	e.Mu.Lock()

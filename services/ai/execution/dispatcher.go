@@ -1,9 +1,10 @@
 package execution
 
 import (
-	"horizon-core/services/ai/plugin"
+	"github.com/project-horizon/horizon-core/services/ai/plugin"
 	"sync"
 )
+
 
 func (e *ExecutionCore) Dispatch(actionName string, contextData string) {
 	e.Mu.RLock()

@@ -1,6 +1,6 @@
 package learning
 
-import "horizon-core/services/ai/knowledge"
+import "github.com/project-horizon/horizon-core/services/ai/knowledge"
 
 type LearningUnit struct {
 	Kb *knowledge.KnowledgeBase
