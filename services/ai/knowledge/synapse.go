@@ -1,7 +1,26 @@
 package knowledge
 
-// Synapse bertindak sebagai jembatan relasi antar simpul konsep dengan bobot tertentu.
+import "time"
+
+type RelationKind string
+
+const (
+	RelationAssociation RelationKind = "association"
+	RelationCause       RelationKind = "cause"
+	RelationFunction    RelationKind = "function"
+	RelationPartWhole   RelationKind = "part_whole"
+	RelationTime        RelationKind = "time"
+	RelationLocation    RelationKind = "location"
+)
+
+// Synapse is a weighted neural connection, not a definition or sentence store.
 type Synapse struct {
-	TargetNode *ConceptNode
-	Weight     float64
+	TargetID       NodeID       `json:"target_id"`
+	Kind           RelationKind `json:"kind"`
+	Weight         float64      `json:"weight"`
+	Activation     float64      `json:"activation"`
+	Frequency      int64        `json:"frequency"`
+	Confidence     float64      `json:"confidence"`
+	Inhibitory     bool         `json:"inhibitory"`
+	LastActivation time.Time    `json:"last_activation,omitempty"`
 }
