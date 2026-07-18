@@ -108,7 +108,22 @@ func (e *Engine) converge(state, confidence map[knowledge.NodeID]float64, now ti
 			resonance += level * max(confidence[id], 0.1)
 		}
 	}
-	sort.Slice(ranked, func(i, j int) bool { return ranked[i].Activation > ranked[j].Activation })
+	sort.Slice(ranked, func(i, j int) bool {
+		left, right := ranked[i], ranked[j]
+		if left.Activation != right.Activation {
+			return left.Activation > right.Activation
+		}
+		if confidence[left.ID] != confidence[right.ID] {
+			return confidence[left.ID] > confidence[right.ID]
+		}
+		if left.Importance != right.Importance {
+			return left.Importance > right.Importance
+		}
+		if left.Frequency != right.Frequency {
+			return left.Frequency > right.Frequency
+		}
+		return left.Token < right.Token
+	})
 	return Result{Converged: len(ranked) > 0, Resonance: resonance, Activations: state, Confidence: confidence, RankedNodes: ranked}
 }
 

@@ -7,7 +7,7 @@ import (
 )
 
 func (h *HorizonEngine) Pulse(task TaskPulse) {
-	prompt := strings.TrimSpace(task.Stimulus + " " + task.Context)
+	prompt := strings.TrimSpace(task.Stimulus)
 	fmt.Printf("⚡ [ENGINE] Mengaktifkan pulsa saraf: %q...\n", prompt)
 	time.Sleep(50 * time.Millisecond)
 
