@@ -9,19 +9,25 @@ import (
 )
 
 type ThinkingEngine struct {
-	Activation *activation.Engine
-	Context    *contextengine.Engine
+	Activation    *activation.Engine
+	Context       *contextengine.Engine
+	Understanding *UnderstandingEngine
+	MetaCognition *MetaCognitiveLayer
+	LastState     CognitiveState
+	LastTrace     PathTrace
 }
 
 type Thought struct {
-	Concepts   []string
-	Confidence float64
-	Resonance  float64
-	Conflicts  []string
+	Concepts       []string
+	Confidence     float64
+	Resonance      float64
+	Conflicts      []string
+	Hypotheses     []Hypothesis
+	NeedsWebSearch bool
 }
 
 func NewThinkingEngine(kb *knowledge.KnowledgeBase) *ThinkingEngine {
-	return &ThinkingEngine{Activation: activation.NewEngine(kb), Context: contextengine.NewEngine(kb)}
+	return &ThinkingEngine{Activation: activation.NewEngine(kb), Context: contextengine.NewEngine(kb), Understanding: NewUnderstandingEngine(kb), MetaCognition: NewMetaCognitiveLayer()}
 }
 
 func splitPrompt(prompt string) []string {
