@@ -4,10 +4,8 @@ import (
 	"fmt"
 	"github.com/project-horizon/horizon-core/services/ai/core"
 	"github.com/project-horizon/horizon-core/services/ai/knowledge"
-	"github.com/project-horizon/horizon-core/services/ai/learning"
 	"github.com/project-horizon/horizon-core/services/ai/plugin"
 )
-
 
 func main() {
 	fmt.Println("==================================================================")
@@ -52,3 +50,4 @@ func main() {
 	fmt.Println("             🧠 ARCHITECTURE SIMULATION COMPLETED                 ")
 	fmt.Println("==================================================================")
 }
+
