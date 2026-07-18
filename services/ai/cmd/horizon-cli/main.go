@@ -2,45 +2,52 @@ package main
 
 import (
 	"fmt"
-	"os"
-
-	"github.com/project-horizon/horizon-core/services/ai/temporary/websearch"
+	"horizon-core/services/ai/core"
+	"horizon-core/services/ai/knowledge"
+	"horizon-core/services/ai/learning"
+	"horizon-core/services/ai/plugin"
 )
 
 func main() {
+	fmt.Println("==================================================================")
+	fmt.Println("         🧠 HORIZON DECOUPLED ARCHITECTURE INITIALIZED            ")
+	fmt.Println("==================================================================")
 
-	if len(os.Args) < 2 {
-		fmt.Println("===================================")
-		fmt.Println(" Horizon CLI")
-		fmt.Println("===================================")
-		fmt.Println()
-		fmt.Println("Usage:")
-		fmt.Println("  horizon learn <word>")
-		os.Exit(1)
-	}
+	// Inisialisasi engine utama lewat core layanan internal
+	horizon := core.NewHorizonEngine()
 
-	switch os.Args[1] {
+	drone := &plugin.DronePlugin{}
+	screen := &plugin.ChatbotPlugin{}
 
-	case "learn":
+	horizon.Execution.RegisterPlugin("Terbang", drone)
+	horizon.Execution.RegisterPlugin("LogSystem", screen)
 
-		if len(os.Args) < 3 {
-			fmt.Println("Usage:")
-			fmt.Println("  horizon learn <word>")
-			os.Exit(1)
-		}
+	fmt.Println("--- [PHASE 1: LEARNING & ASIMILASI KNOWLEDGE] ---")
+	burung := horizon.Knowledge.Store("Burung")
+	fungsi := horizon.Knowledge.Store("Fungsi Utama")
+	terbang := horizon.Knowledge.Store("Terbang")
+	
+	burung.Relations[fungsi] = &knowledge.Synapse{TargetNode: terbang, Weight: 0.95}
 
-		word := os.Args[2]
+	elang := horizon.Knowledge.Store("Burung Elang")
+	elang.Parent = burung
+	burung.Children["Burung Elang"] = elang
 
-		if err := websearch.LearnWord(word); err != nil {
-			fmt.Println("ERROR:", err)
-			os.Exit(1)
-		}
+	unta := horizon.Knowledge.Store("Burung Unta")
+	unta.Parent = burung
+	burung.Children["Burung Unta"] = unta
+	horizon.Learning.Assimilate("Burung Unta", "Fungsi Utama", "Terbang", 0.95)
 
-	default:
+	horizon.Learning.Assimilate("Definisi", "Makna Hakiki", "Menjelaskan Esensi Konsep", 0.99)
+	fmt.Println()
 
-		fmt.Println("Unknown command:", os.Args[1])
-		os.Exit(1)
+	fmt.Println("--- [PHASE 2: ENGINE PULSE & HIGH-SPEED EXECUTION] ---")
 
-	}
+	horizon.Pulse(core.TaskPulse{Stimulus: "Burung Elang", Context: "Fungsi Utama", Data: "Koordinat Ketinggian 50m"})
+	horizon.Pulse(core.TaskPulse{Stimulus: "Burung Unta", Context: "Fungsi Utama", Data: "Koordinat Ketinggian 50m"})
+	horizon.Pulse(core.TaskPulse{Stimulus: "Definisi", Context: "Makna Hakiki", Data: "Konteks Logika"})
 
+	fmt.Println("==================================================================")
+	fmt.Println("             🧠 ARCHITECTURE SIMULATION COMPLETED                 ")
+	fmt.Println("==================================================================")
 }
