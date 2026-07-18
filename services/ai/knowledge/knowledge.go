@@ -114,6 +114,39 @@ func (k *KnowledgeBase) Optimize(now time.Time, staleAfter time.Duration, decay 
 	}
 }
 
+func (k *KnowledgeBase) Load(path string) error {
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	var nodes []*ConceptNode
+	if err := json.Unmarshal(b, &nodes); err != nil {
+		return err
+	}
+	registry := NewTokenRegistry()
+	var maxID NodeID
+	for _, node := range nodes {
+		if node == nil || canonicalToken(node.Token) == "" {
+			continue
+		}
+		node.Token = canonicalToken(node.Token)
+		if node.Synapses == nil {
+			node.Synapses = map[NodeID]*Synapse{}
+		}
+		registry.byID[node.ID] = node
+		registry.byToken[node.Token] = node.ID
+		if node.ID > maxID {
+			maxID = node.ID
+		}
+	}
+	registry.nextID = maxID + 1
+	if registry.nextID < 1 {
+		registry.nextID = 1
+	}
+	k.Registry = registry
+	return nil
+}
+
 func (k *KnowledgeBase) Save(path string) error {
 	b, e := json.MarshalIndent(k.Registry.Nodes(), "", "  ")
 	if e != nil {
